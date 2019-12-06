@@ -12,6 +12,8 @@ BuildRequires:  pkgconfig(libyui-mga)
 BuildRequires:  pkgconfig(libyui-qt)
 BuildRequires:	pkgconfig(python)
 BuildRequires:  python-libyui
+BuildRequires:  python3egg(setuptools)
+BuildRequires:  python3egg(pyyaml)
 
 %description
 Python ManaTools starts from the experience of tools and framework written in Perl, since most systemd and dbus API are python based instead a this way seemed to be natural.
