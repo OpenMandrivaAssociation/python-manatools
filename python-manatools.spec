@@ -16,6 +16,7 @@ BuildRequires:  python3egg(setuptools)
 BuildRequires:  python3egg(pyyaml)
 
 Requires:  python-distribute
+Requires:  python3dist(setuptools)
 
 %description
 Python ManaTools starts from the experience of tools and framework written in Perl, since most systemd and dbus API are python based instead a this way seemed to be natural.
