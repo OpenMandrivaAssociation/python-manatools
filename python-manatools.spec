@@ -1,5 +1,5 @@
 Name:		python-manatools
-Version:	0.1
+Version:	0.0.1
 Release:	0.18.05.2019
 Summary:	A python framework to build ManaTools application
 Group:		System/Libraries
@@ -16,6 +16,7 @@ BuildRequires:  python3egg(setuptools)
 BuildRequires:  python3egg(pyyaml)
 
 Requires:  python-distribute
+Requires:  python3-distribute
 Requires:  python3dist(setuptools)
 
 %description
