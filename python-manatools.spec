@@ -31,3 +31,5 @@ python setup.py build
 python setup.py install --root=%{buildroot}
 
 %files
+%{python_sitelib}/manatools/*
+%{python_sitelib}/python_manatools*
