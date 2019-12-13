@@ -1,0 +1,12 @@
+diff -up python-manatools-master/setup.py.omv~ python-manatools-master/setup.py
+--- python-manatools-master/setup.py.omv~	2019-12-13 14:33:00.071678169 +0100
++++ python-manatools-master/setup.py	2019-12-13 14:33:14.777677206 +0100
+@@ -25,7 +25,7 @@ setup(
+   #data_files=[('conf/manatools', ['XXX.yy',]), ],
+   install_requires=[
+     #"argparse",
+-    "distribute",
++    #"setuptools",
+     "PyYAML",
+   ],
+ )
