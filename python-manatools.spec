@@ -17,6 +17,7 @@ BuildRequires:  python-libyui
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(pyyaml)
 
+Requires: python3dist(dbus-python)
 Requires: python3dist(setuptools)
 Requires: python-libyui
 
