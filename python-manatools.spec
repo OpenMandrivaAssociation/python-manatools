@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 Name:		python-manatools
 Version:	0.0.3
 Release:	1
