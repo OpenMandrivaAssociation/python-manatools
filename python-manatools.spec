@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		python-manatools
-Version:	0.0.3
+Version:	0.0.4
 Release:	1
 Summary:	A python framework to build ManaTools application
 Group:		System/Libraries
