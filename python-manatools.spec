@@ -2,7 +2,7 @@
 
 Name:		python-manatools
 Version:	0.0.4
-Release:	1
+Release:	2
 Summary:	A python framework to build ManaTools application
 Group:		System/Libraries
 License:	LGPLv2+
