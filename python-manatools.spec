@@ -2,7 +2,7 @@
 
 Name:		python-manatools
 Version:	0.0.4
-Release:	3
+Release:	4
 Summary:	A python framework to build ManaTools application
 Group:		System/Libraries
 License:	LGPLv2+
@@ -13,14 +13,14 @@ BuildRequires:	pkgconfig(libyui)
 BuildRequires:  pkgconfig(libyui-mga)
 BuildRequires:  pkgconfig(libyui-qt)
 BuildRequires:	pkgconfig(python)
-BuildRequires:  python-libyui
+BuildRequires:  python-yui
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(pyyaml)
 
 Requires: python3dist(dbus-python)
 Requires: python3dist(python-gettext)
 Requires: python3dist(setuptools)
-Requires: python-libyui
+Requires: python-yui
 
 %description
 Python ManaTools starts from the experience of tools and framework written in Perl, since most systemd and dbus API are python based instead a this way seemed to be natural.
