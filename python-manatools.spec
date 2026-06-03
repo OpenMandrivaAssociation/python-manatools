@@ -1,41 +1,52 @@
-%global debug_package %{nil}
+%define module manatools
+%define oname python_manatools
 
 Name:		python-manatools
-Version:	0.0.4
-Release:	5
-Summary:	A python framework to build ManaTools application
+Version:	0.99.2
+Release:	1
+Summary:	Framework to build ManaTools applications
 Group:		System/Libraries
-License:	LGPLv2+
-URL:            https://github.com/manatools/python-manatools
-Source0:        https://github.com/manatools/python-manatools/archive/%{version}/%{name}-%{version}.tar.gz
+License:	LGPL-2.0-or-later
+URL:		https://github.com/manatools/python-manatools
+Source0:	https://github.com/manatools/python-manatools/archive/%{version}/%{name}-%{version}.tar.gz
+Source100:	%{name}.rpmlintrc
 
-BuildRequires:	pkgconfig(libyui)
-BuildRequires:  pkgconfig(libyui-mga)
-BuildRequires:  pkgconfig(libyui-qt)
-BuildRequires:	pkgconfig(python)
-BuildRequires:  python-yui
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(pyyaml)
+BuildSystem:	python
+BuildArch:	noarch
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(poetry-core)
+BuildRequires:	python%{pyver}dist(wheel)
+# Provide these as we cannot know beforehand which UI frameworks consumers
+# are using with manatools.
+# Qt support
+Requires:	python%{pyver}dist(pyside6)
+# GTK support
+Requires:	python%{pyver}dist(pycairo)
+Requires:	python%{pyver}dist(pygobject)
 
-Requires: python3dist(dbus-python)
-Requires: python3dist(python-gettext)
-Requires: python3dist(setuptools)
-Requires: python-yui
 
 %description
-Python ManaTools starts from the experience of tools and framework written in Perl, since most systemd and dbus API are python based instead a this way seemed to be natural.
-Python ManaTools aim is to help in writing tools based on libYui (Suse widget abstraction library), to be collected under the same ManaTool hat and hopefully with the same look and feel.
-Every output modules can of course be run using QT, Gtk or ncurses interface.
+%{name} builds on the original Perl-based ManaTools idea, keeping
+the same goal of a shared toolkit and consistent UX while moving to Python to
+match systemd and D-Bus APIs.
 
-%prep
-%autosetup -p1
+We are grateful to libyui for the foundation it provided, but this project
+now ships its own AUI layer and keeps evolving independently.
 
-%build
-%py_build
+Today it focuses on a backend-agnostic UI abstraction for GTK, Qt, and
+ncurses, plus the services and helpers needed by ManaTools.
 
-%install
-%py_install
+%prep -a
+# Fix shebangs
+sed -i 's:^#!/usr/bin/env python3:#!%{__python}:' \
+	manatools/aui/backends/curses/radiobuttoncurses.py \
+	manatools/aui/yui.py
+
+%install -a
+# Set executable bit on installed python scripts
+chmod +x %{buildroot}%{python_sitelib}/manatools/aui/backends/curses/radiobuttoncurses.py \
+	%{buildroot}%{python_sitelib}/manatools/aui/yui.py
 
 %files
-%{python_sitelib}/manatools/*
-%{python_sitelib}/python_manatools*
+%{python_sitelib}/%{module}
+%{python_sitelib}/%{oname}-%{version}.dist-info
