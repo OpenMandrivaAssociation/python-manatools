@@ -3,7 +3,7 @@
 
 Name:		python-manatools
 Version:	0.99.2
-Release:	2
+Release:	3
 Summary:	Framework to build ManaTools applications
 Group:		Development/Python
 License:	LGPL-2.0-or-later
@@ -41,7 +41,6 @@ Requires:	python%{pyver}dist(python-manatools) = %{EVRD}
 Requires:	pyside6-core
 Requires:	pyside6-gui
 Requires:	pyside6-widgets
-Supplements:	%{name} = %{EVRD}
 
 %description -n %{name}-qt
 This is a metapackage bringing in Qt extra requirements for %{name}.
@@ -63,7 +62,6 @@ Requires:	typelib(GdkPixbuf) = 2.0
 Requires:	typelib(Gio) = 2.0
 Requires:	typelib(Gtk) = 4.0
 Requires:	typelib(Pango)
-Supplements:	%{name} = %{EVRD}
 
 %description -n %{name}-gtk
 This is a metapackage bringing in GTK extra requirements for %{name}.
